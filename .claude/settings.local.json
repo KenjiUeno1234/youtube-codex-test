@@ -4,7 +4,9 @@
       "Bash(dir:*)",
       "Bash(npm run build:*)",
       "Bash(npm run tune:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(npm run render:pdf:*)",
+      "Bash(npx @marp-team/marp-cli:*)"
     ],
     "deny": [],
     "ask": []
