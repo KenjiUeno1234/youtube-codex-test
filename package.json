@@ -1,0 +1,15 @@
+{
+  "name": "yt-mvp",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "sections": "node src/03_sections.js input/script_final.md output/sections.json",
+    "plan": "node src/04_plan.js output/sections.json config/mapping.json config/slide.schema.json output/slides_plan.json",
+    "render:md": "node src/06_render.js output/slides_plan.json output/slides_src config/theme.css",
+    "render:pdf": "npx marp output/slides_src/deck.md -o output/slides_export/deck.pdf --allow-local-files --theme-set config/theme.css",
+    "tune": "node src/05_tune.js output/slides_plan.json config/slide.schema.json",
+    "build": "npm run sections && npm run plan && npm run render:md",
+    "build:pdf": "npm run build && npm run render:pdf"
+  },
+  "devDependencies": {}
+}

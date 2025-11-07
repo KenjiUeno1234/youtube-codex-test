@@ -1,0 +1,9 @@
+{
+  "intro": ["title_card", "definition"],
+  "point": ["definition", "bullets"],
+  "example": ["bullets", "illustration"],
+  "comparison": ["comparison", "bullets"],
+  "process": ["process", "diagram"],
+  "recap": ["recap", "bullets"],
+  "cta": ["cta"]
+}

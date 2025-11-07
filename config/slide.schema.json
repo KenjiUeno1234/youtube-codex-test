@@ -1,0 +1,23 @@
+{
+  "title": "SlidePlanItem",
+  "type": "object",
+  "properties": {
+    "sectionId": { "type": "string" },
+    "template": { "enum": [
+      "title_card", "definition", "bullets", "comparison",
+      "process", "diagram", "illustration", "quote", "recap", "cta"
+    ] },
+    "fields": { "type": "object" },
+    "constraintsResult": {
+      "type": "object",
+      "properties": {
+        "estimatedLines": { "type": "integer" },
+        "maxLines": { "type": "integer" },
+        "maxCharsPerLine": { "type": "integer" },
+        "visualScore": { "type": "integer" }
+      }
+    },
+    "notes": { "type": "string" }
+  },
+  "required": ["sectionId", "template", "fields"]
+}

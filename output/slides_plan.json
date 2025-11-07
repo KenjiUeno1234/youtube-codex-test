@@ -1,0 +1,151 @@
+{
+  "slides": [
+    {
+      "sectionId": "S001",
+      "template": "bullets",
+      "fields": {
+        "title": "【目次】\n\n1.",
+        "items": [
+          "【目次】\n\n1.",
+          "RAG過信への警鐘と本稿の目的",
+          "1-1.",
+          "本動画の位置づけ",
+          "1-2."
+        ]
+      },
+      "constraintsResult": {
+        "estimatedLines": 6,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 100
+      },
+      "notes": "OK"
+    },
+    {
+      "sectionId": "S002",
+      "template": "bullets",
+      "fields": {
+        "title": "1. RAG過信への警鐘と本稿の目的",
+        "items": [
+          "###",
+          "1-1.",
+          "本動画の位置づけ\n\n登壇者は「自社データ＝RAG」という",
+          "早合点に疑問を投げかけます。",
+          "相談現場ではRAG不要の案件が多く、"
+        ]
+      },
+      "constraintsResult": {
+        "estimatedLines": 7,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 90
+      },
+      "notes": "文字が多いかも。短文化/分割を検討"
+    },
+    {
+      "sectionId": "S003",
+      "template": "bullets",
+      "fields": {
+        "title": "2. 問1：網羅的な参照は必要か",
+        "items": [
+          "###",
+          "2-1.",
+          "チェックリスト型はRAG不適\n\n校閲・監査などのチェックリス…",
+          "全観点を同時に適用する必要があります。",
+          "RAGは必要部分だけを引く設計のため、"
+        ]
+      },
+      "constraintsResult": {
+        "estimatedLines": 7,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 90
+      },
+      "notes": "文字が多いかも。短文化/分割を検討"
+    },
+    {
+      "sectionId": "S004",
+      "template": "bullets",
+      "fields": {
+        "title": "3. 問2：元データはLLMの入力上限内か",
+        "items": [
+          "###",
+          "3-1.",
+          "収まるなら“全部入れる”が速い\n\n近年のLLMは長文入力に対…",
+          "ガイドラインが上限内に収まるなら、",
+          "毎回プロンプトへ全投入する方が精度は安定。"
+        ]
+      },
+      "constraintsResult": {
+        "estimatedLines": 7,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 90
+      },
+      "notes": "文字が多いかも。短文化/分割を検討"
+    },
+    {
+      "sectionId": "S005",
+      "template": "bullets",
+      "fields": {
+        "title": "4. 問3：動的に変えるパターン数は何個か",
+        "items": [
+          "###",
+          "4-1.",
+          "少数パターンはテンプレ運用\n\nRAGは「都度差し替え」が強み…",
+          "しかしパターンが10〜20個程度なら、",
+          "業界別・用途別テンプレートを作成し、"
+        ]
+      },
+      "constraintsResult": {
+        "estimatedLines": 7,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 90
+      },
+      "notes": "文字が多いかも。短文化/分割を検討"
+    },
+    {
+      "sectionId": "S006",
+      "template": "bullets",
+      "fields": {
+        "title": "5. 実務への落とし込み",
+        "items": [
+          "###",
+          "5-1.",
+          "判断フロー（文章版）\n\n1.",
+          "網羅チェックが必要か。",
+          "YESならRAG不要。"
+        ]
+      },
+      "constraintsResult": {
+        "estimatedLines": 6,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 100
+      },
+      "notes": "OK"
+    },
+    {
+      "sectionId": "S007",
+      "template": "bullets",
+      "fields": {
+        "title": "◆本日のポイント\n\n-",
+        "items": [
+          "◆本日のポイント\n\n-",
+          "RAGは“必要部分だけ引く”道具です。",
+          "網羅チェックや少数パターン管理には不向きです。",
+          "-",
+          "上限内データは毎回全投入が早くて強いです。"
+        ]
+      },
+      "constraintsResult": {
+        "estimatedLines": 6,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 100
+      },
+      "notes": "OK"
+    }
+  ]
+}
