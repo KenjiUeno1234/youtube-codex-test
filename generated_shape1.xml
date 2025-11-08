@@ -1,0 +1,99 @@
+======================================================================
+ファイル: output/slides_export/deck.pptx
+スライド 1, 図形 1: TextBox 2
+======================================================================
+
+完全なXML:
+<p:sp xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+  <p:nvSpPr>
+    <p:cNvPr id="3" name="TextBox 2"/>
+    <p:cNvSpPr txBox="1"/>
+    <p:nvPr/>
+  </p:nvSpPr>
+  <p:spPr>
+    <a:xfrm>
+      <a:off x="1188720" y="1645920"/>
+      <a:ext cx="7315200" cy="3657600"/>
+    </a:xfrm>
+    <a:prstGeom prst="rect">
+      <a:avLst/>
+    </a:prstGeom>
+    <a:noFill/>
+  </p:spPr>
+  <p:txBody>
+    <a:bodyPr wrap="none">
+      <a:spAutoFit/>
+    </a:bodyPr>
+    <a:lstStyle/>
+    <a:p>
+      <a:pPr>
+        <a:defRPr sz="2600">
+          <a:solidFill>
+            <a:srgbClr val="FFFFFF"/>
+          </a:solidFill>
+        </a:defRPr>
+      </a:pPr>
+      <a:r>
+        <a:t>【目次】</a:t>
+      </a:r>
+      <a:br/>
+      <a:br/>
+      <a:r>
+        <a:t>1.</a:t>
+      </a:r>
+      <a:br/>
+      <a:r>
+        <a:t>RAG過信への警鐘と本稿の目的</a:t>
+      </a:r>
+      <a:br/>
+      <a:r>
+        <a:t>1-1.</a:t>
+      </a:r>
+      <a:br/>
+      <a:r>
+        <a:t>本動画の位置づけ</a:t>
+      </a:r>
+      <a:br/>
+      <a:r>
+        <a:t>1-2.</a:t>
+      </a:r>
+    </a:p>
+    <a:p>
+      <a:pPr>
+        <a:defRPr sz="2600">
+          <a:solidFill>
+            <a:srgbClr val="FFFFFF"/>
+          </a:solidFill>
+        </a:defRPr>
+      </a:pPr>
+    </a:p>
+    <a:p>
+      <a:pPr>
+        <a:defRPr sz="2600">
+          <a:solidFill>
+            <a:srgbClr val="FFFFFF"/>
+          </a:solidFill>
+        </a:defRPr>
+      </a:pPr>
+    </a:p>
+    <a:p>
+      <a:pPr>
+        <a:defRPr sz="2600">
+          <a:solidFill>
+            <a:srgbClr val="FFFFFF"/>
+          </a:solidFill>
+        </a:defRPr>
+      </a:pPr>
+    </a:p>
+    <a:p>
+      <a:pPr>
+        <a:defRPr sz="2600">
+          <a:solidFill>
+            <a:srgbClr val="FFFFFF"/>
+          </a:solidFill>
+        </a:defRPr>
+      </a:pPr>
+    </a:p>
+  </p:txBody>
+</p:sp>
+

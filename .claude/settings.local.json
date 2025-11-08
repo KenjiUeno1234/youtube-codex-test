@@ -6,7 +6,16 @@
       "Bash(npm run tune:*)",
       "Bash(node:*)",
       "Bash(npm run render:pdf:*)",
-      "Bash(npx @marp-team/marp-cli:*)"
+      "Bash(npx @marp-team/marp-cli:*)",
+      "Bash(pip install:*)",
+      "Bash(python src/06_render_pptx.py:*)",
+      "Bash(python src/analyze_pptx_template.py:*)",
+      "Bash(python:*)",
+      "Bash(npm run build:pptx:*)",
+      "Bash(npm run render:pptx:*)",
+      "Bash(start output/04_deck.pptx)",
+      "Bash(del output04_deck.pptx)",
+      "Bash(start output/04_deck_verified.pptx)"
     ],
     "deny": [],
     "ask": []

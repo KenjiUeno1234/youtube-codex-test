@@ -3,13 +3,16 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "sections": "node src/03_sections.js input/script_final.md output/sections.json",
-    "plan": "node src/04_plan.js output/sections.json config/mapping.json config/slide.schema.json output/slides_plan.json",
-    "render:md": "node src/06_render.js output/slides_plan.json output/slides_src config/theme.css",
-    "render:pdf": "npx marp output/slides_src/deck.md -o output/slides_export/deck.pdf --allow-local-files --theme-set config/theme.css",
-    "tune": "node src/05_tune.js output/slides_plan.json config/slide.schema.json",
-    "build": "npm run sections && npm run plan && npm run render:md",
-    "build:pdf": "npm run build && npm run render:pdf"
+    "sections": "node src/03_sections.js input/script_final.md output/01_sections.json",
+    "plan": "node src/04_plan.js output/01_sections.json config/mapping.json config/slide.schema.json output/02_slides_plan.json",
+    "tune": "node src/05_tune.js output/02_slides_plan.json config/slide.schema.json output/03_slides_tuned.json",
+    "render:md": "node src/06_render.js output/03_slides_tuned.json output/slides_src config/theme.css",
+    "render:pdf": "npx @marp-team/marp-cli output/slides_src/deck.md -o output/slides_export/deck.pdf --allow-local-files --theme-set config/theme.css",
+    "render:pptx": "python src/06_render_pptx.py output/03_slides_tuned.json slide/slide_templates_all_variations_jp.pptx output/04_deck.pptx",
+    "verify:colors": "python src/07_verify_colors.py output/04_deck.pptx",
+    "build": "npm run sections && npm run plan && npm run tune && npm run render:md",
+    "build:pdf": "npm run build && npm run render:pdf",
+    "build:pptx": "npm run sections && npm run plan && npm run tune && npm run render:pptx && npm run verify:colors"
   },
   "devDependencies": {}
 }
