@@ -1,0 +1,24 @@
+{
+  "slides": [
+    {
+      "type": "title",
+      "title": "プロダクトデモ",
+      "subtitle": "新しいナビゲーションの流れを紹介します。"
+    },
+    {
+      "type": "bullets",
+      "title": "アップデート",
+      "items": [
+        "動画やスクショで改善点を示します。",
+        "ユーザーテストの結果も共有します。",
+        "今後のリリース予定を確認します。"
+      ]
+    },
+    {
+      "type": "image",
+      "title": "スクショ概要",
+      "path": "data/assets/placeholder.png",
+      "caption": "スクショで改善点を説明"
+    }
+  ]
+}

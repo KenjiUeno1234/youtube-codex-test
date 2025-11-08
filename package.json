@@ -1,0 +1,19 @@
+{
+  "name": "youtube-codex-test",
+  "version": "1.0.0",
+  "description": "MVP slide automation pipeline",
+  "main": "index.js",
+  "scripts": {
+    "build:md": "node src/renderSlides.js",
+    "build:pdf": "npx @marp-team/marp-cli out/slides.md --pdf -o out/slides.pdf --allow-local-files",
+    "mvp": "node src/splitSections.js && node src/planSlides.js && node src/renderSlides.js && npx @marp-team/marp-cli out/slides.md --pdf -o out/slides.pdf --allow-local-files",
+    "eval:one": "node src/eval.js --pred preds/tmp.json --gold data/dataset/gold_01.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@marp-team/marp-cli": "file:vendor/marp-cli"
+  }
+}

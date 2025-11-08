@@ -1,0 +1,23 @@
+{
+  "slides": [
+    {
+      "type": "title",
+      "title": "キックオフ",
+      "subtitle": "来期の目標共有ミーティングです。"
+    },
+    {
+      "type": "bullets",
+      "title": "重点施策",
+      "items": [
+        "売上成長の指標と重点施策を紹介します。",
+        "ロードマップの要点を整理します。"
+      ]
+    },
+    {
+      "type": "image",
+      "title": "ロードマップ図",
+      "path": "data/assets/placeholder.png",
+      "caption": "図で来期のロードマップを共有"
+    }
+  ]
+}

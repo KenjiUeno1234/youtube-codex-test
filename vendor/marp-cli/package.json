@@ -1,0 +1,7 @@
+{
+  "name": "@marp-team/marp-cli",
+  "version": "0.0.0-mvp",
+  "bin": {
+    "marp": "bin/marp.js"
+  }
+}
