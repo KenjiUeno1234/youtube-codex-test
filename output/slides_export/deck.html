@@ -9,62 +9,71 @@
 <body>
   <div class="slides-container">
     
-    <div class="slide list-toc" data-template="list-table-of-contents">
-      <h2>目次</h2>
+    <div class="slide strong-title" data-template="strong-title">
+      <h1>なんでもかんでも
+RAGじゃない!</h1>
+    </div>
+    <div class="slide bullets" data-template="bullets">
+      <h2>よくある相談パターン</h2>
       <ul>
-        <li>RAG過信への警鐘</li>
-        <li>問1: 網羅的参照は必要か</li>
-        <li>問2: データは上限内か</li>
-        <li>問3: パターン数は何個か</li>
-        <li>実務への落とし込み</li>
+        <li>自社データ=RAGという思い込み</li>
+        <li>実はプロンプト設計で十分</li>
+        <li>パターン化で解決できる</li>
+        <li>RAG導入前の3つの問い</li>
       </ul>
     </div>
-    <div class="slide strong-title" data-template="strong-title">
-      <h1>RAG過信への警鐘</h1>
+    <div class="slide definition" data-template="definition">
+      <h2></h2>
+      <p></p>
     </div>
-    <div class="slide screenshots" data-template="screenshots">
-      <h2>問1: 網羅的参照は必要か</h2>
-      <div class="screenshots-grid">
-        
-        <div class="screenshot-placeholder">
-          <p class="caption">RAG（部分参照）</p>
-          <p class="description">必要部分のみ抽出<br>→観点の欠落リスク</p>
-        </div>
-        
-        <div class="screenshot-placeholder">
-          <p class="caption">プロンプト（全観点）</p>
-          <p class="description">全観点を明示<br>→網羅性を担保</p>
-        </div>
-        
-      </div>
+    <div class="slide bullets" data-template="bullets">
+      <h2>問い②：入力上限に収まる?</h2>
+      <ul>
+        <li>GPT/Claude：10〜20万文字</li>
+        <li>Gemini：100万文字以上</li>
+        <li>全部入れても低コスト</li>
+        <li>10万文字で約10円</li>
+        <li>RAG構築より安く確実</li>
+      </ul>
     </div>
-    <div class="slide illustrations" data-template="illustrations">
-      <h2>問2: データは上限内か</h2>
-      <div class="image-placeholder">
-        <p class="caption">コスト比較の図解</p>
-        <p class="description">全投入: 数円〜十数円/回<br>数百回なら総コスト優位<br><br>RAG構築: 初期開発費大<br>少量利用では割高</p>
-      </div>
+    <div class="slide bullets" data-template="bullets">
+      <h2>問い③：パターンは何個?</h2>
+      <ul>
+        <li>10〜20個程度なら</li>
+        <li>テンプレート化が最適</li>
+        <li>業界別プロンプト作成</li>
+        <li>1日で完成、使い回し可能</li>
+        <li>RAGより精度高く運用楽</li>
+      </ul>
     </div>
-    <div class="slide illustrations" data-template="illustrations">
-      <h2>問3: パターン数は何個か</h2>
-      <div class="image-placeholder">
-        <p class="caption">業界別テンプレート運用例</p>
-        <p class="description">製造業向けテンプレート<br>金融業向けテンプレート<br>小売業向けテンプレート<br><br>→ 10〜20個なら<br>   人が選択する方が効率的</p>
-      </div>
+    <div class="slide list-toc" data-template="list-table-of-contents">
+      <h2>3つの問いまとめ</h2>
+      <ul>
+        <li>全部見たい？→プロンプト</li>
+        <li>AIで読める量？→全部入れる</li>
+        <li>パターン少ない？→テンプレ化</li>
+        <li>当てはまるならRAG不要</li>
+        <li>プロンプト設計が早く安い</li>
+      </ul>
     </div>
-    <div class="slide process" data-template="process">
-      <h2>判断フロー</h2>
-      <ol>
-        <li>網羅チェック必要→RAG不要</li>
-        <li>上限内データ→全投入</li>
-        <li>パターン管理可能→テンプレ</li>
-        <li>上記以外のみRAG検討</li>
-      </ol>
+    <div class="slide definition" data-template="definition">
+      <h2></h2>
+      <p></p>
     </div>
-    <div class="slide strong-title" data-template="strong-title">
-      <h1>RAGは
-「巨大・高頻度・多数」
-で初めて検討</h1>
+    <div class="slide list-toc" data-template="list-table-of-contents">
+      <h2>今日のポイント</h2>
+      <ul>
+        <li>RAGは一部を引っ張る仕組み</li>
+        <li>全部見る用途には不向き</li>
+        <li>上限内なら全部入れる</li>
+        <li>パターン少ないならテンプレ化</li>
+        <li>適材適所で使い分ける</li>
+      </ul>
+    </div>
+    <div class="slide cta" data-template="cta">
+      <h2>最後に</h2>
+      <p class="message">無駄にRAGを作って成果が出ない失敗を防ぐ。自社データ活用の第一歩として適切な選択を。</p>
+      
     </div>
   </div>
 

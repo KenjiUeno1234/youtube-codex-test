@@ -2,129 +2,167 @@
   "slides": [
     {
       "sectionId": "S001",
-      "template": "list_toc",
-      "fields": {
-        "title": "目次",
-        "items": [
-          "RAG過信への警鐘",
-          "問1: 網羅的参照は必要か",
-          "問2: データは上限内か",
-          "問3: パターン数は何個か",
-          "実務への落とし込み"
-        ]
-      },
-      "constraintsResult": {
-        "estimatedLines": 6,
-        "maxLines": 6,
-        "maxCharsPerLine": 26,
-        "visualScore": 100
-      },
-      "notes": "OK"
-    },
-    {
-      "sectionId": "S002",
       "template": "strong_title",
       "fields": {
-        "title": "RAG過信への警鐘",
-        "message": "自社データ = RAG ?\n本当に必要ですか？"
+        "title": "なんでもかんでも\nRAGじゃない!"
       },
       "constraintsResult": {
         "estimatedLines": 2,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 100
+        "visualScore": 95
       },
-      "notes": "OK - 強調メッセージで警鐘を鳴らす"
+      "notes": "OK - タイトルスライド"
+    },
+    {
+      "sectionId": "S002",
+      "template": "bullets",
+      "fields": {
+        "title": "よくある相談パターン",
+        "items": [
+          "自社データ=RAGという思い込み",
+          "実はプロンプト設計で十分",
+          "パターン化で解決できる",
+          "RAG導入前の3つの問い"
+        ]
+      },
+      "constraintsResult": {
+        "estimatedLines": 5,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 90
+      },
+      "notes": "OK"
     },
     {
       "sectionId": "S003",
-      "template": "screenshots",
+      "template": "definition",
       "fields": {
-        "title": "問1: 網羅的参照は必要か",
-        "images": [
-          {
-            "caption": "RAG（部分参照）",
-            "description": "必要部分のみ抽出\n→観点の欠落リスク"
-          },
-          {
-            "caption": "プロンプト（全観点）",
-            "description": "全観点を明示\n→網羅性を担保"
-          }
-        ]
+        "title": "問い①：全部参照する?",
+        "content": "RAGは必要な部分だけを取得。チェックリストのように全項目を見る場合は、プロンプトに全部入れる方が確実。AI判断とプログラム判定を切り分ける。"
       },
       "constraintsResult": {
         "estimatedLines": 4,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 95
+        "visualScore": 88
       },
-      "notes": "OK - 2つの手法を視覚的に対比"
+      "notes": "OK"
     },
     {
       "sectionId": "S004",
-      "template": "illustrations",
+      "template": "bullets",
       "fields": {
-        "title": "問2: データは上限内か",
-        "caption": "コスト比較の図解",
-        "description": "全投入: 数円〜十数円/回\n数百回なら総コスト優位\n\nRAG構築: 初期開発費大\n少量利用では割高"
-      },
-      "constraintsResult": {
-        "estimatedLines": 5,
-        "maxLines": 6,
-        "maxCharsPerLine": 26,
-        "visualScore": 95
-      },
-      "notes": "OK - コスト比較を視覚化"
-    },
-    {
-      "sectionId": "S005",
-      "template": "illustrations",
-      "fields": {
-        "title": "問3: パターン数は何個か",
-        "caption": "業界別テンプレート運用例",
-        "description": "製造業向けテンプレート\n金融業向けテンプレート\n小売業向けテンプレート\n\n→ 10〜20個なら\n   人が選択する方が効率的"
+        "title": "問い②：入力上限に収まる?",
+        "items": [
+          "GPT/Claude：10〜20万文字",
+          "Gemini：100万文字以上",
+          "全部入れても低コスト",
+          "10万文字で約10円",
+          "RAG構築より安く確実"
+        ]
       },
       "constraintsResult": {
         "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 95
+        "visualScore": 92
       },
-      "notes": "OK - テンプレート運用を視覚化"
+      "notes": "OK"
     },
     {
-      "sectionId": "S006",
-      "template": "process",
+      "sectionId": "S005",
+      "template": "bullets",
       "fields": {
-        "title": "判断フロー",
-        "steps": [
-          "網羅チェック必要→RAG不要",
-          "上限内データ→全投入",
-          "パターン管理可能→テンプレ",
-          "上記以外のみRAG検討"
+        "title": "問い③：パターンは何個?",
+        "items": [
+          "10〜20個程度なら",
+          "テンプレート化が最適",
+          "業界別プロンプト作成",
+          "1日で完成、使い回し可能",
+          "RAGより精度高く運用楽"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 95
+        "visualScore": 90
+      },
+      "notes": "OK"
+    },
+    {
+      "sectionId": "S006",
+      "template": "list_toc",
+      "fields": {
+        "title": "3つの問いまとめ",
+        "items": [
+          "全部見たい？→プロンプト",
+          "AIで読める量？→全部入れる",
+          "パターン少ない？→テンプレ化",
+          "当てはまるならRAG不要",
+          "プロンプト設計が早く安い"
+        ]
+      },
+      "constraintsResult": {
+        "estimatedLines": 6,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 93
       },
       "notes": "OK"
     },
     {
       "sectionId": "S007",
-      "template": "strong_title",
+      "template": "definition",
       "fields": {
-        "title": "RAGは\n「巨大・高頻度・多数」\nで初めて検討"
+        "title": "RAG＝正義ではない",
+        "content": "RAGは部分参照が必要なときの道具。網羅チェックやテンプレ運用には向かない。3つの問いをチェックしてから導入判断する。"
+      },
+      "constraintsResult": {
+        "estimatedLines": 4,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 90
+      },
+      "notes": "OK"
+    },
+    {
+      "sectionId": "S008",
+      "template": "list_toc",
+      "fields": {
+        "title": "今日のポイント",
+        "items": [
+          "RAGは一部を引っ張る仕組み",
+          "全部見る用途には不向き",
+          "上限内なら全部入れる",
+          "パターン少ないならテンプレ化",
+          "適材適所で使い分ける"
+        ]
+      },
+      "constraintsResult": {
+        "estimatedLines": 6,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 92
+      },
+      "notes": "OK"
+    },
+    {
+      "sectionId": "S009",
+      "template": "cta",
+      "fields": {
+        "title": "RAGを使わない勇気を",
+        "message": "無駄にRAGを作って成果が出ない失敗を防ぐ。自社データ活用の第一歩として適切な選択を。",
+        "action": ""
       },
       "constraintsResult": {
         "estimatedLines": 3,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 100
+        "visualScore": 88
       },
-      "notes": "OK - 核心メッセージを強調"
+      "notes": "OK"
     }
   ]
 }
