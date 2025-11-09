@@ -9,7 +9,7 @@
 <body>
   <div class="slides-container">
     
-    <div class="slide list-toc">
+    <div class="slide list-toc" data-template="list-table-of-contents">
       <h2>目次</h2>
       <ul>
         <li>RAG過信への警鐘</li>
@@ -19,7 +19,7 @@
         <li>実務への落とし込み</li>
       </ul>
     </div>
-    <div class="slide bullets">
+    <div class="slide bullets" data-template="bullets">
       <h2>RAG過信への警鐘</h2>
       <ul>
         <li>自社データ=RAGは早合点</li>
@@ -28,7 +28,7 @@
         <li>3つの問で導入を判断</li>
       </ul>
     </div>
-    <div class="slide bullets">
+    <div class="slide bullets" data-template="bullets">
       <h2>問1: 網羅的参照は必要か</h2>
       <ul>
         <li>チェックリスト型はRAG不適</li>
@@ -38,7 +38,7 @@
         <li>観点を明示して分割実行</li>
       </ul>
     </div>
-    <div class="slide bullets">
+    <div class="slide bullets" data-template="bullets">
       <h2>問2: データは上限内か</h2>
       <ul>
         <li>上限内なら全部入れるが速い</li>
@@ -48,7 +48,7 @@
         <li>大量時のみRAG検討</li>
       </ul>
     </div>
-    <div class="slide bullets">
+    <div class="slide bullets" data-template="bullets">
       <h2>問3: パターン数は何個か</h2>
       <ul>
         <li>10〜20個ならテンプレ運用</li>
@@ -58,7 +58,7 @@
         <li>管理可能ならRAG不要</li>
       </ul>
     </div>
-    <div class="slide process">
+    <div class="slide process" data-template="process">
       <h2>判断フロー</h2>
       <ol>
         <li>網羅チェック必要→RAG不要</li>
@@ -67,10 +67,14 @@
         <li>上記以外のみRAG検討</li>
       </ol>
     </div>
-    <div class="slide recap">
-      <h2>まとめ</h2>
+    <div class="slide recap" data-template="recap">
+      <h2>本日のポイント</h2>
       <ul>
-        
+        <li>RAGは必要部分だけ引く道具</li>
+        <li>網羅チェックには不向き</li>
+        <li>上限内は全投入が最強</li>
+        <li>少数パターンはテンプレ運用</li>
+        <li>巨大・高頻度・多数で検討</li>
       </ul>
     </div>
   </div>

@@ -11,38 +11,38 @@ if (!planPath || !outDir) {
 const planData = JSON.parse(readText(planPath));
 const slides = planData.slidesWithTuning || planData.slides;
 
-// テンプレート関数
+// テンプレート関数（テンプレート名をdata属性として追加）
 const tpl = {
-  title_card: (f) => `
-    <div class="slide title-card">
+  title_card: (f, templateName) => `
+    <div class="slide title-card" data-template="title_card">
       <h1>${f.title || ''}</h1>
       <p class="subtitle">${f.subtitle || ''}</p>
     </div>`,
 
-  definition: (f) => `
-    <div class="slide definition">
+  definition: (f, templateName) => `
+    <div class="slide definition" data-template="definition">
       <h2>${f.term || ''}</h2>
       <p>${f.desc || ''}</p>
     </div>`,
 
-  bullets: (f) => `
-    <div class="slide bullets">
+  bullets: (f, templateName) => `
+    <div class="slide bullets" data-template="bullets">
       <h2>${f.title || ''}</h2>
       <ul>
         ${(f.items || []).map(i => `<li>${i}</li>`).join('\n        ')}
       </ul>
     </div>`,
 
-  process: (f) => `
-    <div class="slide process">
+  process: (f, templateName) => `
+    <div class="slide process" data-template="process">
       <h2>${f.title || ''}</h2>
       <ol>
         ${(f.steps || []).map(s => `<li>${s}</li>`).join('\n        ')}
       </ol>
     </div>`,
 
-  comparison: (f) => `
-    <div class="slide comparison">
+  comparison: (f, templateName) => `
+    <div class="slide comparison" data-template="comparison">
       <h2>${f.title || ''}</h2>
       <table>
         <thead>
@@ -63,57 +63,57 @@ const tpl = {
       </table>
     </div>`,
 
-  recap: (f) => `
-    <div class="slide recap">
-      <h2>まとめ</h2>
+  recap: (f, templateName) => `
+    <div class="slide recap" data-template="recap">
+      <h2>${f.title || 'まとめ'}</h2>
       <ul>
-        ${(f.points || []).map(p => `<li>${p}</li>`).join('\n        ')}
+        ${(f.items || f.points || []).map(p => `<li>${p}</li>`).join('\n        ')}
       </ul>
     </div>`,
 
-  cta: (f) => `
-    <div class="slide cta">
+  cta: (f, templateName) => `
+    <div class="slide cta" data-template="cta">
       <h2>最後に</h2>
       <p class="message">${f.message || ''}</p>
       ${f.link ? `<a href="${f.link}" class="link">リンク</a>` : ''}
     </div>`,
 
-  diagram: (f) => `
-    <div class="slide diagram">
+  diagram: (f, templateName) => `
+    <div class="slide diagram" data-template="diagram">
       <h2>図解</h2>
       <div class="placeholder">ここにSVGを挿入</div>
     </div>`,
 
-  illustration: (f) => `
-    <div class="slide illustration">
+  illustration: (f, templateName) => `
+    <div class="slide illustration" data-template="illustration">
       <h2>イラスト</h2>
       <div class="placeholder">ここに画像を挿入</div>
     </div>`,
 
   // PDFテンプレート対応
-  strong_title: (f) => `
-    <div class="slide strong-title">
+  strong_title: (f, templateName) => `
+    <div class="slide strong-title" data-template="strong-title">
       <h1>${f.title || f.message || ''}</h1>
     </div>`,
 
-  list_toc: (f) => `
-    <div class="slide list-toc">
+  list_toc: (f, templateName) => `
+    <div class="slide list-toc" data-template="list-table-of-contents">
       <h2>${f.title || ''}</h2>
       <ul>
         ${(f.items || []).map(i => `<li>${i}</li>`).join('\n        ')}
       </ul>
     </div>`,
 
-  illustrations: (f) => `
-    <div class="slide illustrations">
+  illustrations: (f, templateName) => `
+    <div class="slide illustrations" data-template="illustrations">
       <h2>${f.title || ''}</h2>
       <div class="image-placeholder">
         <p>${f.caption || 'ここにイラスト/サムネイル画像'}</p>
       </div>
     </div>`,
 
-  screenshots: (f) => `
-    <div class="slide screenshots">
+  screenshots: (f, templateName) => `
+    <div class="slide screenshots" data-template="screenshots">
       <h2>${f.title || ''}</h2>
       <div class="screenshots-grid">
         <div class="screenshot-placeholder">ここにスクリーンショット画像</div>
@@ -125,12 +125,12 @@ const tpl = {
 // スライドHTML生成
 let slidesHTML = '';
 for (const p of slides) {
-  const fn = tpl[p.template] || ((f) => `
-    <div class="slide">
+  const fn = tpl[p.template] || ((f, templateName) => `
+    <div class="slide" data-template="${templateName || 'unknown'}">
       <h2>${f.title || ''}</h2>
       <p>${f.body || ''}</p>
     </div>`);
-  slidesHTML += fn(p.fields);
+  slidesHTML += fn(p.fields, p.template);
 }
 
 // 完全なHTMLドキュメント生成

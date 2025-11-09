@@ -42,10 +42,11 @@ body {
   position: absolute;
   top: 30px;
   left: 50px;
-  font-size: 14px;
+  font-size: 16px;
   color: #c77dff;
   text-transform: lowercase;
-  font-weight: 300;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 /* 見出しスタイル */
