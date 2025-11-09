@@ -23,7 +23,9 @@
       "Bash(npm run plan:*)",
       "Bash(npm run render:md:*)",
       "Bash(npm run render:html:*)",
-      "Bash(start \"output/slides_export/deck.html\")"
+      "Bash(start \"output/slides_export/deck.html\")",
+      "Bash(start \"output/slides_export/deck_from_html.pdf\")",
+      "Bash(npm run html-to-pdf:*)"
     ],
     "deny": [],
     "ask": []

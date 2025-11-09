@@ -1,0 +1,83 @@
+/* @theme yt-mvp-dark */
+/* Dark theme for YouTube video slides - PDF export */
+
+section {
+  font-family: 'Noto Sans JP', 'BIZ UDP Gothic', system-ui, -apple-system, sans-serif;
+  font-size: 36px;
+  line-height: 1.3;
+  padding: 6% 7%;
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 64px;
+  margin-bottom: 0.6em;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 48px;
+  margin-bottom: 0.4em;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: 40px;
+  margin-bottom: 0.3em;
+}
+
+ul {
+  margin: 0.6em 0;
+  padding-left: 1.2em;
+}
+
+li {
+  margin: 0.25em 0;
+  line-height: 1.4;
+}
+
+table {
+  font-size: 32px;
+  margin: 0.5em auto;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 0.4em 0.8em;
+  border: 2px solid #555;
+  color: #ffffff;
+}
+
+table th {
+  background-color: #333;
+  font-weight: 700;
+}
+
+blockquote {
+  border-left: 8px solid #999;
+  padding-left: 16px;
+  color: #e0e0e0;
+  margin: 1em 0;
+  font-style: italic;
+}
+
+strong {
+  color: #7dd3c0;
+  font-weight: 700;
+}
+
+a {
+  color: #7dd3c0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

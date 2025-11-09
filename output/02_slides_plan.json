@@ -106,43 +106,42 @@
     },
     {
       "sectionId": "S006",
-      "template": "bullets",
+      "template": "process",
       "fields": {
-        "title": "実務への落とし込み",
-        "items": [
-          "網羅チェック→全観点明示",
+        "title": "判断フロー",
+        "steps": [
+          "網羅チェック必要→RAG不要",
           "上限内データ→全投入",
-          "少数パターン→テンプレ化",
-          "RAGは最終手段として検討",
-          "初期費用と運用SLAを試算"
+          "パターン管理可能→テンプレ",
+          "上記以外のみRAG検討"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 6,
+        "estimatedLines": 5,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 100
+        "visualScore": 95
       },
       "notes": "OK"
     },
     {
       "sectionId": "S007",
-      "template": "bullets",
+      "template": "recap",
       "fields": {
         "title": "本日のポイント",
         "items": [
           "RAGは必要部分だけ引く道具",
           "網羅チェックには不向き",
-          "上限内は全投入が早い",
-          "RAGは巨大・高頻度・多数で",
-          "それ以外はテンプレで十分"
+          "上限内は全投入が最強",
+          "少数パターンはテンプレ運用",
+          "巨大・高頻度・多数で検討"
         ]
       },
       "constraintsResult": {
         "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 100
+        "visualScore": 95
       },
       "notes": "OK"
     }
