@@ -108,18 +108,26 @@ const tpl = {
     <div class="slide illustrations" data-template="illustrations">
       <h2>${f.title || ''}</h2>
       <div class="image-placeholder">
-        <p>${f.caption || 'ここにイラスト/サムネイル画像'}</p>
+        <p class="caption">${f.caption || 'ここにイラスト/サムネイル画像'}</p>
+        ${f.description ? `<p class="description">${f.description.replace(/\n/g, '<br>')}</p>` : ''}
       </div>
     </div>`,
 
-  screenshots: (f, templateName) => `
+  screenshots: (f, templateName) => {
+    const images = f.images || [];
+    return `
     <div class="slide screenshots" data-template="screenshots">
       <h2>${f.title || ''}</h2>
       <div class="screenshots-grid">
-        <div class="screenshot-placeholder">ここにスクリーンショット画像</div>
-        <div class="screenshot-placeholder">ここにスクリーンショット画像</div>
+        ${images.map(img => `
+        <div class="screenshot-placeholder">
+          <p class="caption">${img.caption || 'ここにスクリーンショット画像'}</p>
+          ${img.description ? `<p class="description">${img.description.replace(/\n/g, '<br>')}</p>` : ''}
+        </div>`).join('\n        ')}
+        ${images.length < 2 ? '<div class="screenshot-placeholder">ここにスクリーンショット画像</div>' : ''}
       </div>
-    </div>`
+    </div>`;
+  }
 };
 
 // スライドHTML生成

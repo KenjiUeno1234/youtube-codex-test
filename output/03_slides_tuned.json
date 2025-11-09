@@ -19,7 +19,31 @@
     },
     {
       "sectionId": "S002",
-      "template": "bullets",
+      "template": "strong_title",
+      "status": "OK",
+      "issues": [],
+      "constraints": {
+        "estimatedLines": 2,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 100
+      }
+    },
+    {
+      "sectionId": "S003",
+      "template": "screenshots",
+      "status": "OK",
+      "issues": [],
+      "constraints": {
+        "estimatedLines": 4,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 95
+      }
+    },
+    {
+      "sectionId": "S004",
+      "template": "illustrations",
       "status": "OK",
       "issues": [],
       "constraints": {
@@ -30,39 +54,15 @@
       }
     },
     {
-      "sectionId": "S003",
-      "template": "bullets",
-      "status": "OK",
-      "issues": [],
-      "constraints": {
-        "estimatedLines": 6,
-        "maxLines": 6,
-        "maxCharsPerLine": 26,
-        "visualScore": 100
-      }
-    },
-    {
-      "sectionId": "S004",
-      "template": "bullets",
-      "status": "OK",
-      "issues": [],
-      "constraints": {
-        "estimatedLines": 6,
-        "maxLines": 6,
-        "maxCharsPerLine": 26,
-        "visualScore": 100
-      }
-    },
-    {
       "sectionId": "S005",
-      "template": "bullets",
+      "template": "illustrations",
       "status": "OK",
       "issues": [],
       "constraints": {
         "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 100
+        "visualScore": 95
       }
     },
     {
@@ -79,14 +79,14 @@
     },
     {
       "sectionId": "S007",
-      "template": "recap",
+      "template": "strong_title",
       "status": "OK",
       "issues": [],
       "constraints": {
-        "estimatedLines": 6,
+        "estimatedLines": 3,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 95
+        "visualScore": 100
       }
     }
   ],
@@ -114,15 +114,50 @@
     },
     {
       "sectionId": "S002",
-      "template": "bullets",
+      "template": "strong_title",
       "fields": {
         "title": "RAG過信への警鐘",
-        "items": [
-          "自社データ=RAGは早合点",
-          "相談現場ではRAG不要が多い",
-          "プロンプト設計で成果が出る",
-          "3つの問で導入を判断"
+        "message": "自社データ = RAG ?\n本当に必要ですか？"
+      },
+      "constraintsResult": {
+        "estimatedLines": 2,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 100
+      },
+      "notes": "OK - 強調メッセージで警鐘を鳴らす"
+    },
+    {
+      "sectionId": "S003",
+      "template": "screenshots",
+      "fields": {
+        "title": "問1: 網羅的参照は必要か",
+        "images": [
+          {
+            "caption": "RAG（部分参照）",
+            "description": "必要部分のみ抽出\n→観点の欠落リスク"
+          },
+          {
+            "caption": "プロンプト（全観点）",
+            "description": "全観点を明示\n→網羅性を担保"
+          }
         ]
+      },
+      "constraintsResult": {
+        "estimatedLines": 4,
+        "maxLines": 6,
+        "maxCharsPerLine": 26,
+        "visualScore": 95
+      },
+      "notes": "OK - 2つの手法を視覚的に対比"
+    },
+    {
+      "sectionId": "S004",
+      "template": "illustrations",
+      "fields": {
+        "title": "問2: データは上限内か",
+        "caption": "コスト比較の図解",
+        "description": "全投入: 数円〜十数円/回\n数百回なら総コスト優位\n\nRAG構築: 初期開発費大\n少量利用では割高"
       },
       "constraintsResult": {
         "estimatedLines": 5,
@@ -130,70 +165,23 @@
         "maxCharsPerLine": 26,
         "visualScore": 95
       },
-      "notes": "OK"
-    },
-    {
-      "sectionId": "S003",
-      "template": "bullets",
-      "fields": {
-        "title": "問1: 網羅的参照は必要か",
-        "items": [
-          "チェックリスト型はRAG不適",
-          "全観点を同時適用が必要",
-          "ルール型はプログラム化",
-          "解釈型は生成AIが適切",
-          "観点を明示して分割実行"
-        ]
-      },
-      "constraintsResult": {
-        "estimatedLines": 6,
-        "maxLines": 6,
-        "maxCharsPerLine": 26,
-        "visualScore": 100
-      },
-      "notes": "OK"
-    },
-    {
-      "sectionId": "S004",
-      "template": "bullets",
-      "fields": {
-        "title": "問2: データは上限内か",
-        "items": [
-          "上限内なら全部入れるが速い",
-          "抽出漏れを避けやすい",
-          "コストは数円〜十数円規模",
-          "数百回程度なら全投入有利",
-          "大量時のみRAG検討"
-        ]
-      },
-      "constraintsResult": {
-        "estimatedLines": 6,
-        "maxLines": 6,
-        "maxCharsPerLine": 26,
-        "visualScore": 100
-      },
-      "notes": "OK"
+      "notes": "OK - コスト比較を視覚化"
     },
     {
       "sectionId": "S005",
-      "template": "bullets",
+      "template": "illustrations",
       "fields": {
         "title": "問3: パターン数は何個か",
-        "items": [
-          "10〜20個ならテンプレ運用",
-          "業界別テンプレートが効率的",
-          "人が選ぶ方が精度高い",
-          "RAGは初期コストが重い",
-          "管理可能ならRAG不要"
-        ]
+        "caption": "業界別テンプレート運用例",
+        "description": "製造業向けテンプレート\n金融業向けテンプレート\n小売業向けテンプレート\n\n→ 10〜20個なら\n   人が選択する方が効率的"
       },
       "constraintsResult": {
         "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 100
+        "visualScore": 95
       },
-      "notes": "OK"
+      "notes": "OK - テンプレート運用を視覚化"
     },
     {
       "sectionId": "S006",
@@ -217,24 +205,17 @@
     },
     {
       "sectionId": "S007",
-      "template": "recap",
+      "template": "strong_title",
       "fields": {
-        "title": "本日のポイント",
-        "items": [
-          "RAGは必要部分だけ引く道具",
-          "網羅チェックには不向き",
-          "上限内は全投入が最強",
-          "少数パターンはテンプレ運用",
-          "巨大・高頻度・多数で検討"
-        ]
+        "title": "RAGは\n「巨大・高頻度・多数」\nで初めて検討"
       },
       "constraintsResult": {
-        "estimatedLines": 6,
+        "estimatedLines": 3,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 95
+        "visualScore": 100
       },
-      "notes": "OK"
+      "notes": "OK - 核心メッセージを強調"
     }
   ]
 }
