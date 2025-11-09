@@ -8,7 +8,9 @@ if (!planPath || !outDir) {
   process.exit(1);
 }
 
-const { slides } = JSON.parse(readText(planPath));
+const planData = JSON.parse(readText(planPath));
+// slidesWithTuning (from tune.js) or slides (from plan.js) を読み取る
+const slides = planData.slidesWithTuning || planData.slides;
 
 const header = `---\nmarp: true\npaginate: true\n---\n\n`;
 

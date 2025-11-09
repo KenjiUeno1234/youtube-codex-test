@@ -14,5 +14,7 @@
     "build:pdf": "npm run build && npm run render:pdf",
     "build:pptx": "npm run sections && npm run plan && npm run tune && npm run render:pptx && npm run verify:colors"
   },
-  "devDependencies": {}
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.68.0"
+  }
 }

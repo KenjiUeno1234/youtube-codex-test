@@ -4,17 +4,17 @@
       "sectionId": "S001",
       "template": "bullets",
       "fields": {
-        "title": "【目次】\n\n1.",
+        "title": "目次",
         "items": [
-          "【目次】\n\n1.",
-          "RAG過信への警鐘と本稿の目的",
-          "1-1.",
-          "本動画の位置づけ",
-          "1-2."
+          "RAG過信への警鐘と目的",
+          "問1: 網羅的参照は必要か",
+          "問2: データは上限内か",
+          "問3: パターン数は何個か",
+          "実務への落とし込み"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 6,
+        "estimatedLines": 5,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -25,101 +25,101 @@
       "sectionId": "S002",
       "template": "bullets",
       "fields": {
-        "title": "1. RAG過信への警鐘と本稿の目的",
+        "title": "RAG過信への警鐘",
         "items": [
-          "###",
-          "1-1.",
-          "本動画の位置づけ\n\n登壇者は「自社データ=RAG」という\n早…",
-          "相談現場ではRAG不要の案件が多く、\nプロンプト設計だけで成…",
-          "###"
+          "自社データ=RAGは早合点",
+          "RAG不要の案件が多い",
+          "プロンプト設計で成果が出る",
+          "3つの問いで判断する",
+          "簡便で高精度な代替が可能"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 8,
+        "estimatedLines": 5,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 80
+        "visualScore": 100
       },
-      "notes": "文字が多いかも。短文化/分割を検討"
+      "notes": "OK"
     },
     {
       "sectionId": "S003",
       "template": "bullets",
       "fields": {
-        "title": "2. 問1:網羅的な参照は必要か",
+        "title": "問1: 網羅的参照は必要か",
         "items": [
-          "###",
-          "2-1.",
-          "チェックリスト型はRAG不適\n\n校閲・監査などのチェックリス…",
-          "RAGは必要部分だけを引く設計のため、\n一部のみ参照すると他…",
-          "結論として「網羅チェックはプロンプトに\n全観点を明示して回す…"
+          "チェックリスト型はRAG不適",
+          "全観点をプロンプトに定義",
+          "ルール型はプログラム化",
+          "解釈型は生成AIで判断",
+          "20項目以上は分割実行"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 9,
+        "estimatedLines": 5,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 70
+        "visualScore": 100
       },
-      "notes": "文字が多いかも。短文化/分割を検討"
+      "notes": "OK"
     },
     {
       "sectionId": "S004",
       "template": "bullets",
       "fields": {
-        "title": "3. 問2:元データはLLMの入力上限内か",
+        "title": "問2: データは上限内か",
         "items": [
-          "###",
-          "3-1.",
-          "収まるなら\"全部入れる\"が速い\n\n近年のLLMは長文入力に対…",
-          "ガイドラインが上限内に収まるなら、\n毎回プロンプトへ全投入す…",
-          "RAGの抽出漏れや取り違えを避けやすいです。"
+          "上限内なら全投入が安定",
+          "RAGの抽出漏れを回避",
+          "数百回なら全投入が有利",
+          "巨大データ・高頻度はRAG",
+          "初期コストを忘れずに"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 8,
+        "estimatedLines": 5,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 80
+        "visualScore": 100
       },
-      "notes": "文字が多いかも。短文化/分割を検討"
+      "notes": "OK"
     },
     {
       "sectionId": "S005",
       "template": "bullets",
       "fields": {
-        "title": "4. 問3:動的に変えるパターン数は何個か",
+        "title": "問3: パターン数は何個か",
         "items": [
-          "###",
-          "4-1.",
-          "少数パターンはテンプレ運用\n\nRAGは「都度差し替え」が強み…",
-          "しかしパターンが10〜20個程度なら、\n業界別・用途別テンプ…",
-          "###"
+          "10〜20個ならテンプレ運用",
+          "業界別テンプレで精度向上",
+          "RAGは都度差し替えが強み",
+          "少数パターンは人が選択",
+          "RAGは初期コスト大"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 8,
+        "estimatedLines": 5,
         "maxLines": 6,
         "maxCharsPerLine": 26,
-        "visualScore": 80
+        "visualScore": 100
       },
-      "notes": "文字が多いかも。短文化/分割を検討"
+      "notes": "OK"
     },
     {
       "sectionId": "S006",
       "template": "bullets",
       "fields": {
-        "title": "5. 実務への落とし込み",
+        "title": "実務への落とし込み",
         "items": [
-          "###",
-          "5-1.",
-          "判断フロー(文章版)\n\n1.",
-          "網羅チェックが必要か。",
-          "YESならRAG不要。"
+          "網羅チェック→全観点定義",
+          "上限内→全投入",
+          "少数パターン→テンプレ",
+          "RAG時は精度と費用を試算",
+          "運用SLAを事前設計"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 6,
+        "estimatedLines": 5,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -130,17 +130,17 @@
       "sectionId": "S007",
       "template": "bullets",
       "fields": {
-        "title": "本日のポイント\n\n-",
+        "title": "まとめ",
         "items": [
-          "本日のポイント\n\n-",
-          "RAGは\"必要部分だけ引く\"道具です。",
-          "網羅チェックや少数パターン管理には不向きです。",
-          "-",
-          "上限内データは毎回全投入が早くて強いです。"
+          "RAGは必要部分だけ引く道具",
+          "網羅チェックには不向き",
+          "上限内は全投入が最適",
+          "少数パターンはテンプレ運用",
+          "RAGは巨大・高頻度向け"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 6,
+        "estimatedLines": 5,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
