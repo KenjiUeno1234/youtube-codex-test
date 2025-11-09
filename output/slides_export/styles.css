@@ -1,0 +1,352 @@
+/* YouTube解説動画スライド - slide_templates_from_image.pdfスタイル */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.slides-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  padding: 80px 100px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slide.active {
+  display: flex;
+}
+
+/* タイトルとテンプレートラベル */
+.slide::before {
+  content: attr(data-template);
+  position: absolute;
+  top: 30px;
+  left: 50px;
+  font-size: 14px;
+  color: #c77dff;
+  text-transform: lowercase;
+  font-weight: 300;
+}
+
+/* 見出しスタイル */
+h1 {
+  font-size: 72px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+/* サブタイトル */
+.subtitle {
+  font-size: 28px;
+  color: #e0e0e0;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* 箇条書き */
+ul, ol {
+  list-style-position: inside;
+  font-size: 36px;
+  line-height: 1.8;
+  color: #e0e0e0;
+}
+
+ul li {
+  margin-bottom: 20px;
+  padding-left: 20px;
+  position: relative;
+}
+
+ul li::marker {
+  color: #7dd3c0;
+  font-size: 28px;
+}
+
+ol li {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+ol li::marker {
+  color: #7dd3c0;
+  font-weight: 600;
+}
+
+/* テーブル */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  font-size: 28px;
+}
+
+thead th {
+  background-color: #c77dff;
+  color: #ffffff;
+  padding: 20px;
+  text-align: left;
+  font-weight: 600;
+}
+
+tbody td {
+  padding: 20px;
+  border-bottom: 1px solid #444444;
+  color: #e0e0e0;
+}
+
+tbody tr:hover {
+  background-color: #333333;
+}
+
+/* strong-title テンプレート */
+.slide.strong-title {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+}
+
+.slide.strong-title h1 {
+  font-size: 96px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* list-toc テンプレート */
+.slide.list-toc {
+  justify-content: flex-start;
+}
+
+.slide.list-toc::before {
+  content: 'list-table-of-contents';
+  color: #c77dff;
+}
+
+.slide.list-toc h2 {
+  font-size: 56px;
+  margin-bottom: 50px;
+}
+
+.slide.list-toc ul {
+  font-size: 40px;
+  line-height: 2;
+}
+
+.slide.list-toc ul li::marker {
+  color: #7dd3c0;
+  font-size: 32px;
+}
+
+/* bullets テンプレート */
+.slide.bullets {
+  justify-content: flex-start;
+}
+
+.slide.bullets h2 {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.slide.bullets ul {
+  font-size: 36px;
+}
+
+/* illustrations テンプレート */
+.slide.illustrations {
+  justify-content: flex-start;
+}
+
+.slide.illustrations::before {
+  content: 'illustrations';
+  color: #c77dff;
+}
+
+.image-placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #555555;
+  border-radius: 8px;
+  margin-top: 30px;
+  background-color: #1a1a1a;
+}
+
+.image-placeholder p {
+  font-size: 32px;
+  color: #888888;
+  text-align: center;
+}
+
+/* screenshots テンプレート */
+.slide.screenshots {
+  justify-content: flex-start;
+}
+
+.slide.screenshots::before {
+  content: 'screenshots';
+  color: #c77dff;
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  flex: 1;
+  margin-top: 30px;
+}
+
+.screenshot-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #555555;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  font-size: 28px;
+  color: #888888;
+  text-align: center;
+  padding: 40px;
+}
+
+/* title-card テンプレート */
+.slide.title-card {
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.slide.title-card h1 {
+  font-size: 72px;
+  margin-bottom: 20px;
+}
+
+/* definition テンプレート */
+.slide.definition {
+  justify-content: flex-start;
+}
+
+.slide.definition h2 {
+  font-size: 52px;
+  color: #c77dff;
+  margin-bottom: 30px;
+}
+
+.slide.definition p {
+  font-size: 36px;
+  color: #e0e0e0;
+  line-height: 1.7;
+}
+
+/* process テンプレート */
+.slide.process {
+  justify-content: flex-start;
+}
+
+.slide.process ol {
+  font-size: 36px;
+}
+
+/* comparison テンプレート */
+.slide.comparison {
+  justify-content: flex-start;
+}
+
+/* recap テンプレート */
+.slide.recap {
+  justify-content: flex-start;
+}
+
+.slide.recap h2 {
+  font-size: 52px;
+  color: #7dd3c0;
+}
+
+/* cta テンプレート */
+.slide.cta {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slide.cta .message {
+  font-size: 40px;
+  color: #e0e0e0;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.slide.cta .link {
+  font-size: 32px;
+  color: #7dd3c0;
+  text-decoration: none;
+  padding: 15px 40px;
+  border: 2px solid #7dd3c0;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.slide.cta .link:hover {
+  background-color: #7dd3c0;
+  color: #1a1a1a;
+}
+
+/* diagram, illustration テンプレート */
+.slide.diagram,
+.slide.illustration {
+  justify-content: flex-start;
+}
+
+.placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #555555;
+  border-radius: 8px;
+  font-size: 32px;
+  color: #888888;
+  background-color: #1a1a1a;
+  margin-top: 30px;
+}
+
+/* ナビゲーションヒント */
+.slides-container::after {
+  content: '← → キーで移動';
+  position: fixed;
+  bottom: 30px;
+  right: 50px;
+  font-size: 14px;
+  color: #666666;
+}

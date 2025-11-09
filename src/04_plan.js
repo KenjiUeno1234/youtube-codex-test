@@ -25,15 +25,37 @@ const constraintsByTpl = {
   diagram: { maxCharsPerLine: 22, maxLines: 6 },
   illustration: { maxCharsPerLine: 26, maxLines: 4 },
   recap: { maxCharsPerLine: 26, maxLines: 6 },
-  cta: { maxCharsPerLine: 24, maxLines: 4 }
+  cta: { maxCharsPerLine: 24, maxLines: 4 },
+
+  // PDFテンプレート対応（slide_templates_from_image.pdf準拠）
+  strong_title: { maxCharsPerLine: 20, maxLines: 2 },
+  list_toc: { maxCharsPerLine: 26, maxLines: 6, maxBullets: 5 },
+  illustrations: { maxCharsPerLine: 26, maxLines: 3 },
+  screenshots: { maxCharsPerLine: 26, maxLines: 3 }
 };
 
 const chooseTemplate = (sec) => {
   const cands = mapping[sec.intent] || mapping.point || ['bullets'];
-  // ヒューリスティック
+
+  // ヒューリスティック（PDFテンプレート優先）
   if (sec.intent === 'comparison') return 'comparison';
   if (sec.intent === 'process') return 'process';
+
+  // 目次っぽいセクション → list_toc
+  if (sec.summary.includes('目次') && cands.includes('list_toc')) return 'list_toc';
+
+  // ポイント/まとめ系 → list_toc優先
+  if ((sec.intent === 'point' || sec.intent === 'recap') && cands.includes('list_toc')) {
+    return 'list_toc';
+  }
+
+  // 短い強調メッセージ → strong_title
+  if (sec.lines.length <= 2 && cands.includes('strong_title')) return 'strong_title';
+
+  // 定義
   if (sec.lines.length <= 2 && cands.includes('definition')) return 'definition';
+
+  // デフォルト
   if (cands.includes('bullets')) return 'bullets';
   return cands[0] || 'title_card';
 };
@@ -49,7 +71,7 @@ async function extractKeyPoints(sec, tpl, constraints) {
 
   const text = sec.lines.join('\n');
   const maxChars = constraints.maxCharsPerLine || 26;
-  const maxItems = constraints.maxBullets || 5;
+  const maxItems = constraints.maxBullets || constraints.maxSteps || 5;
 
   let prompt = '';
 
@@ -62,6 +84,24 @@ async function extractKeyPoints(sec, tpl, constraints) {
 - 簡潔で分かりやすく
 - 重要なポイントだけを抽出
 - 文末は体言止めか「です」「ます」で統一
+
+【テキスト】
+${text}
+
+【出力形式】
+JSON形式で出力してください：
+{
+  "title": "スライドタイトル（最大30文字）",
+  "items": ["項目1", "項目2", ...]
+}`;
+  } else if (tpl === 'list_toc') {
+    prompt = `以下のテキストから、目次または箇条書きリストに適した要点を抽出してください。
+
+【制約】
+- 1項目あたり最大${maxChars}文字
+- 最大${maxItems}項目
+- 簡潔で分かりやすく
+- 重要なポイントだけを抽出
 
 【テキスト】
 ${text}
@@ -89,6 +129,22 @@ JSON形式で出力してください：
   "title": "タイトル",
   "subtitle": "サブタイトル"
 }`;
+  } else if (tpl === 'strong_title') {
+    prompt = `以下のテキストから、強調メッセージスライドに適したタイトルを抽出してください。
+
+【制約】
+- タイトル：最大20文字
+- インパクトのある短いメッセージ
+- 簡潔で印象的に
+
+【テキスト】
+${text}
+
+【出力形式】
+JSON形式で出力してください：
+{
+  "title": "強調タイトル"
+}`;
   } else if (tpl === 'recap') {
     prompt = `以下のテキストから、まとめスライドに適した要点を抽出してください。
 
@@ -105,6 +161,90 @@ JSON形式で出力してください：
 {
   "title": "まとめ",
   "points": ["要点1", "要点2", ...]
+}`;
+  } else if (tpl === 'process') {
+    prompt = `以下のテキストから、プロセス・手順スライドに適したステップを抽出してください。
+
+【制約】
+- 1ステップあたり最大${maxChars}文字
+- 最大${maxItems}ステップ
+- 手順を明確に
+- 簡潔で分かりやすく
+
+【テキスト】
+${text}
+
+【出力形式】
+JSON形式で出力してください：
+{
+  "title": "スライドタイトル（最大30文字）",
+  "steps": ["ステップ1", "ステップ2", ...]
+}`;
+  } else if (tpl === 'definition') {
+    prompt = `以下のテキストから、定義スライドに適した内容を抽出してください。
+
+【制約】
+- 用語：最大16文字
+- 説明：最大100文字
+- 簡潔で分かりやすく
+
+【テキスト】
+${text}
+
+【出力形式】
+JSON形式で出力してください：
+{
+  "term": "用語",
+  "desc": "説明"
+}`;
+  } else if (tpl === 'comparison') {
+    prompt = `以下のテキストから、比較スライドに適した内容を抽出してください。
+
+【制約】
+- 比較項目：最大3項目
+- 各項目の説明は簡潔に
+
+【テキスト】
+${text}
+
+【出力形式】
+JSON形式で出力してください：
+{
+  "title": "スライドタイトル（最大30文字）",
+  "criteria": ["項目1", "項目2", "項目3"],
+  "left": ["左側の説明1", "左側の説明2", "左側の説明3"],
+  "right": ["右側の説明1", "右側の説明2", "右側の説明3"]
+}`;
+  } else if (tpl === 'cta') {
+    prompt = `以下のテキストから、行動喚起スライドに適したメッセージを抽出してください。
+
+【制約】
+- メッセージ：最大40文字
+- 印象的で行動を促す内容
+
+【テキスト】
+${text}
+
+【出力形式】
+JSON形式で出力してください：
+{
+  "message": "メッセージ",
+  "link": "リンクURL（あれば）"
+}`;
+  } else if (tpl === 'illustrations' || tpl === 'screenshots') {
+    prompt = `以下のテキストから、画像付きスライドに適したタイトルを抽出してください。
+
+【制約】
+- タイトル：最大30文字
+- 簡潔で分かりやすく
+
+【テキスト】
+${text}
+
+【出力形式】
+JSON形式で出力してください：
+{
+  "title": "スライドタイトル"
 }`;
   } else {
     return fallbackExtraction(sec, tpl);
@@ -165,6 +305,19 @@ function fallbackExtraction(sec, tpl) {
     }
     case 'cta':
       return { message: cut(text, 40), link: '' };
+
+    // PDFテンプレート対応
+    case 'strong_title':
+      return { title: sec.summary || cut(text, 30) };
+    case 'list_toc': {
+      const items = sec.lines.slice(0, 5).map(v => cut(v, 30));
+      return { title: sec.summary, items };
+    }
+    case 'illustrations':
+      return { title: sec.summary, image_path: 'placeholder.png', caption: 'ここにイラスト/サムネイル画像' };
+    case 'screenshots':
+      return { title: sec.summary, screenshot1: 'placeholder1.png', screenshot2: 'placeholder2.png' };
+
     default:
       return { title: sec.summary, body: cut(text, 100) };
   }
@@ -173,8 +326,14 @@ function fallbackExtraction(sec, tpl) {
 const toFields = async (tpl, sec) => {
   const constraints = constraintsByTpl[tpl] || {};
 
-  // bullets、title_card、recapの場合はLLMで要点抽出
-  if (['bullets', 'title_card', 'recap'].includes(tpl) && anthropic) {
+  // LLMが利用可能な場合はすべてのテンプレートでLLM要約を使用
+  // diagram と illustration は画像プレースホルダーのみなのでフォールバック
+  const llmSupportedTemplates = [
+    'bullets', 'list_toc', 'title_card', 'strong_title', 'recap',
+    'process', 'definition', 'comparison', 'cta', 'illustrations', 'screenshots'
+  ];
+
+  if (llmSupportedTemplates.includes(tpl) && anthropic) {
     return await extractKeyPoints(sec, tpl, constraints);
   } else {
     return fallbackExtraction(sec, tpl);
@@ -190,6 +349,13 @@ const estimateLines = (tpl, fields) => {
     case 'comparison': return 5; // 簡易
     case 'definition': return measure(fields.desc) + 1;
     case 'recap': return (fields.points || []).reduce((a, b) => a + measure(b), 0) + 1;
+
+    // PDFテンプレート対応
+    case 'strong_title': return measure(fields.title || '') || 1;
+    case 'list_toc': return (fields.items || []).reduce((a, b) => a + measure(b), 0) + 1;
+    case 'illustrations': return 2; // タイトル + 画像
+    case 'screenshots': return 2; // タイトル + 画像2枚
+
     default: return 4;
   }
 };

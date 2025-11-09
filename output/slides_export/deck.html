@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube解説動画スライド</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="slides-container">
+    
+    <div class="slide list-toc">
+      <h2>目次</h2>
+      <ul>
+        <li>RAG過信への警鐘と本稿の目的</li>
+        <li>問1:網羅的な参照は必要か</li>
+        <li>問2:元データは入力上限内か</li>
+        <li>問3:パターン数は何個か</li>
+        <li>実務への落とし込み</li>
+      </ul>
+    </div>
+    <div class="slide bullets">
+      <h2>RAG過信への警鐘と本稿の目的</h2>
+      <ul>
+        <li>「自社データ=RAG」は早合点</li>
+        <li>RAG不要の案件が多数存在</li>
+        <li>プロンプト設計のみで解決可能</li>
+        <li>RAG導入前の3つの問を確認</li>
+        <li>簡便で高精度な代替を検討</li>
+      </ul>
+    </div>
+    <div class="slide list-toc">
+      <h2>問1:網羅的な参照は必要か</h2>
+      <ul>
+        <li>チェックリスト型はRAG不適</li>
+        <li>全観点をプロンプトに明示</li>
+        <li>ルール型はプログラム化</li>
+        <li>解釈型は生成AIで判断</li>
+        <li>20項目以上は分割実行</li>
+      </ul>
+    </div>
+    <div class="slide list-toc">
+      <h2>問2:元データは入力上限内か</h2>
+      <ul>
+        <li>上限内なら全投入が最適</li>
+        <li>抽出漏れ・取り違えを回避</li>
+        <li>数百回程度なら総コスト有利</li>
+        <li>大量トランザクションで再検討</li>
+        <li>RAGは巨大データ向き</li>
+      </ul>
+    </div>
+    <div class="slide bullets">
+      <h2>問3:パターン数は何個か</h2>
+      <ul>
+        <li>10〜20個ならテンプレ運用</li>
+        <li>業界別テンプレートを作成</li>
+        <li>人が選択する方が高精度</li>
+        <li>RAGの初期コストを回避</li>
+        <li>パターン管理で開発軽量化</li>
+      </ul>
+    </div>
+    <div class="slide bullets">
+      <h2>実務への落とし込み</h2>
+      <ul>
+        <li>網羅チェック必要→RAG不要</li>
+        <li>上限内データ→全投入</li>
+        <li>管理可能パターン→テンプレ</li>
+        <li>RAG導入は最後の選択肢</li>
+        <li>失敗回避は観点の明示化</li>
+      </ul>
+    </div>
+    <div class="slide list-toc">
+      <h2>本日のポイント</h2>
+      <ul>
+        <li>RAGは必要部分だけ引く道具</li>
+        <li>網羅チェックには不向き</li>
+        <li>上限内は全投入が最適</li>
+        <li>RAGは巨大・高頻度向き</li>
+        <li>それ以外はプロンプト設計</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // スライド操作
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(n) {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === n) {
+          slide.classList.add('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // キーボード操作
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    // 初期表示
+    showSlide(0);
+  </script>
+</body>
+</html>

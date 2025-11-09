@@ -15,7 +15,15 @@
       "Bash(npm run render:pptx:*)",
       "Bash(start output/04_deck.pptx)",
       "Bash(del output04_deck.pptx)",
-      "Bash(start output/04_deck_verified.pptx)"
+      "Bash(start output/04_deck_verified.pptx)",
+      "Bash(npm run build:pdf:*)",
+      "Bash(start outputslides_exportdeck.pdf)",
+      "Bash(start \"output/slides_export/deck.pdf\")",
+      "Bash(npm run sections:*)",
+      "Bash(npm run plan:*)",
+      "Bash(npm run render:md:*)",
+      "Bash(npm run render:html:*)",
+      "Bash(start \"output/slides_export/deck.html\")"
     ],
     "deny": [],
     "ask": []

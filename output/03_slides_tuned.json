@@ -7,11 +7,11 @@
   "tuneResults": [
     {
       "sectionId": "S001",
-      "template": "bullets",
+      "template": "list_toc",
       "status": "OK",
       "issues": [],
       "constraints": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -23,7 +23,7 @@
       "status": "OK",
       "issues": [],
       "constraints": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -31,11 +31,11 @@
     },
     {
       "sectionId": "S003",
-      "template": "bullets",
+      "template": "list_toc",
       "status": "OK",
       "issues": [],
       "constraints": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -43,11 +43,11 @@
     },
     {
       "sectionId": "S004",
-      "template": "bullets",
+      "template": "list_toc",
       "status": "OK",
       "issues": [],
       "constraints": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -59,7 +59,7 @@
       "status": "OK",
       "issues": [],
       "constraints": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -71,7 +71,7 @@
       "status": "OK",
       "issues": [],
       "constraints": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -79,11 +79,11 @@
     },
     {
       "sectionId": "S007",
-      "template": "bullets",
+      "template": "list_toc",
       "status": "OK",
       "issues": [],
       "constraints": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -93,19 +93,19 @@
   "slidesWithTuning": [
     {
       "sectionId": "S001",
-      "template": "bullets",
+      "template": "list_toc",
       "fields": {
         "title": "目次",
         "items": [
-          "RAG過信への警鐘と目的",
-          "問1: 網羅的参照は必要か",
-          "問2: データは上限内か",
-          "問3: パターン数は何個か",
+          "RAG過信への警鐘と本稿の目的",
+          "問1:網羅的な参照は必要か",
+          "問2:元データは入力上限内か",
+          "問3:パターン数は何個か",
           "実務への落とし込み"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -116,17 +116,17 @@
       "sectionId": "S002",
       "template": "bullets",
       "fields": {
-        "title": "RAG過信への警鐘",
+        "title": "RAG過信への警鐘と本稿の目的",
         "items": [
-          "自社データ=RAGは早合点",
-          "RAG不要の案件が多い",
-          "プロンプト設計で成果が出る",
-          "3つの問いで判断する",
-          "簡便で高精度な代替が可能"
+          "「自社データ=RAG」は早合点",
+          "RAG不要の案件が多数存在",
+          "プロンプト設計のみで解決可能",
+          "RAG導入前の3つの問を確認",
+          "簡便で高精度な代替を検討"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -135,19 +135,19 @@
     },
     {
       "sectionId": "S003",
-      "template": "bullets",
+      "template": "list_toc",
       "fields": {
-        "title": "問1: 網羅的参照は必要か",
+        "title": "問1:網羅的な参照は必要か",
         "items": [
           "チェックリスト型はRAG不適",
-          "全観点をプロンプトに定義",
+          "全観点をプロンプトに明示",
           "ルール型はプログラム化",
           "解釈型は生成AIで判断",
           "20項目以上は分割実行"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -156,19 +156,19 @@
     },
     {
       "sectionId": "S004",
-      "template": "bullets",
+      "template": "list_toc",
       "fields": {
-        "title": "問2: データは上限内か",
+        "title": "問2:元データは入力上限内か",
         "items": [
-          "上限内なら全投入が安定",
-          "RAGの抽出漏れを回避",
-          "数百回なら全投入が有利",
-          "巨大データ・高頻度はRAG",
-          "初期コストを忘れずに"
+          "上限内なら全投入が最適",
+          "抽出漏れ・取り違えを回避",
+          "数百回程度なら総コスト有利",
+          "大量トランザクションで再検討",
+          "RAGは巨大データ向き"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -179,17 +179,17 @@
       "sectionId": "S005",
       "template": "bullets",
       "fields": {
-        "title": "問3: パターン数は何個か",
+        "title": "問3:パターン数は何個か",
         "items": [
           "10〜20個ならテンプレ運用",
-          "業界別テンプレで精度向上",
-          "RAGは都度差し替えが強み",
-          "少数パターンは人が選択",
-          "RAGは初期コスト大"
+          "業界別テンプレートを作成",
+          "人が選択する方が高精度",
+          "RAGの初期コストを回避",
+          "パターン管理で開発軽量化"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -202,15 +202,15 @@
       "fields": {
         "title": "実務への落とし込み",
         "items": [
-          "網羅チェック→全観点定義",
-          "上限内→全投入",
-          "少数パターン→テンプレ",
-          "RAG時は精度と費用を試算",
-          "運用SLAを事前設計"
+          "網羅チェック必要→RAG不要",
+          "上限内データ→全投入",
+          "管理可能パターン→テンプレ",
+          "RAG導入は最後の選択肢",
+          "失敗回避は観点の明示化"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100
@@ -219,19 +219,19 @@
     },
     {
       "sectionId": "S007",
-      "template": "bullets",
+      "template": "list_toc",
       "fields": {
-        "title": "まとめ",
+        "title": "本日のポイント",
         "items": [
           "RAGは必要部分だけ引く道具",
           "網羅チェックには不向き",
           "上限内は全投入が最適",
-          "少数パターンはテンプレ運用",
-          "RAGは巨大・高頻度向け"
+          "RAGは巨大・高頻度向き",
+          "それ以外はプロンプト設計"
         ]
       },
       "constraintsResult": {
-        "estimatedLines": 5,
+        "estimatedLines": 6,
         "maxLines": 6,
         "maxCharsPerLine": 26,
         "visualScore": 100

@@ -1,9 +1,9 @@
 {
-  "intro": ["title_card", "definition"],
-  "point": ["definition", "bullets"],
-  "example": ["bullets", "illustration"],
-  "comparison": ["comparison", "bullets"],
-  "process": ["process", "diagram"],
-  "recap": ["recap", "bullets"],
-  "cta": ["cta"]
+  "intro": ["title_card", "strong_title", "definition"],
+  "point": ["definition", "bullets", "list_toc"],
+  "example": ["bullets", "illustration", "illustrations"],
+  "comparison": ["comparison", "bullets", "screenshots"],
+  "process": ["process", "diagram", "list_toc"],
+  "recap": ["recap", "bullets", "list_toc"],
+  "cta": ["cta", "strong_title"]
 }

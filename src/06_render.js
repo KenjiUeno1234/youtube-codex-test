@@ -25,7 +25,17 @@ const tpl = {
   recap: (f) => `## まとめ\n\n${(f.points||[]).map(p=>`- ${p}`).join('\n')}\n`,
   cta: (f) => `## 最後に\n\n${f.message||''}\n\n${f.link?`[リンク](${f.link})`:''}\n`,
   diagram: (f) => `## 図解\n\n(ここにSVGを挿入:MVPではプレースホルダー)\n`,
-  illustration: (f) => `## イラスト\n\n(ここに画像を挿入:MVPではプレースホルダー)\n`
+  illustration: (f) => `## イラスト\n\n(ここに画像を挿入:MVPではプレースホルダー)\n`,
+
+  // PDFテンプレート対応（slide_templates_from_image.pdf）
+  strong_title: (f) => `\n<!-- _class: strong-title -->\n\n# ${f.title || f.message || ''}\n`,
+  list_toc: (f) => `## ${f.title || ''}\n\n${(f.items||[]).map(i => `- ${i}`).join('\n')}\n`,
+  illustrations: (f) => `## ${f.title || ''}\n\n![](${f.image_path || 'placeholder.png'})\n\n_${f.caption || 'ここにイラスト/サムネイル画像'}_\n`,
+  screenshots: (f) => {
+    const img1 = f.screenshot1 || 'placeholder1.png';
+    const img2 = f.screenshot2 || 'placeholder2.png';
+    return `## ${f.title || ''}\n\n<div style="display: flex; gap: 20px;">\n\n![](${img1})\n\n![](${img2})\n\n</div>\n`;
+  }
 };
 
 let body = '';
